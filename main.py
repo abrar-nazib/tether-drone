@@ -17,6 +17,8 @@ class SignalData(BaseModel):
     altitude: float
     image: Optional[bytes] = None
     detection_data: Optional[str] = None
+    signal_strength: float
+    
 
 # pydantic model for drone command
 class DronePosition(BaseModel):
@@ -46,8 +48,8 @@ def send_drone_position(position: DronePosition):
     return response
 
 # Example usage
-pos = DronePosition(lat=0, lng=0)
-signal_data = SignalData(lat=100, lng=120, tower_distance=30, altitude=50)
+pos = DronePosition(lat=23.7489144, lng= 90.3703079)
+signal_data = SignalData(lat=100, lng=120, tower_distance=30, altitude=50, signal_strength=100)
 # send_signal_data(signal_data)
 # send_drone_position(pos)
 print(get_plan())
